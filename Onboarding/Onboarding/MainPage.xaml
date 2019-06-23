@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             mc:Ignorable="d"
+             x:Class="Onboarding.MainPage">
+
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <cv:CarouselViewControl x:Name="cvWalkthrough" ShowIndicators="true" IndicatorsShape="Circle" IndicatorsTintColor="LightGray"
+                                CurrentPageIndicatorTintColor="#FF0088" Orientation="Horizontal" InterPageSpacing="0"  
+                                ItemsSource="{Binding WalkthroughItems}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                                AnimateTransition="True">
+            <cv:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <Image Source="{Binding Image}" Aspect="Fill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                        <StackLayout Orientation="Vertical" Spacing="20" HorizontalOptions="Start" VerticalOptions="End" WidthRequest="300" Margin="20,50">
+                            <Frame HasShadow="False" BackgroundColor="#FF0088" CornerRadius="15" 
+                                   Padding="0" HorizontalOptions="Start" VerticalOptions="Start"
+                                   WidthRequest="100" HeightRequest="30">
+                                <Label Text="{Binding Heading}" FontSize="14" TextColor="White" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                            </Frame>
+                            <Label x:Name="CaptionTxt" Text="{Binding Caption}" FontSize="20" TextColor="White" Margin="0,0,0,70"/>
+                            <Image Source="chevron.png" HeightRequest="30" WidthRequest="30" Aspect="Fill" HorizontalOptions="End" VerticalOptions="End"/>
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </cv:CarouselViewControl.ItemTemplate>
+        </cv:CarouselViewControl>
+    </Grid>
+
+</ContentPage>
